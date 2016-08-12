@@ -1,5 +1,6 @@
 package com.quanyan.permission.web;
 
+import com.alibaba.fastjson.JSON;
 import com.quanyan.permission.entity.Action;
 import com.quanyan.permission.service.ActionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,9 @@ public class ActionController {
      * @return
      */
     @RequestMapping(value = "/addAction",method = RequestMethod.POST,produces = {"application/json; charset=UTF-8"})
-    public String addAction(@RequestBody Action action){
+    public Object addAction(@RequestBody Action action){
         actionService.addAction(action);
-        return "OK";
+        return JSON.toJSON(action);
     }
 
 }
