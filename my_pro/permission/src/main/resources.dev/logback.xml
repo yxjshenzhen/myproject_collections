@@ -1,6 +1,6 @@
 <configuration>
 
-    <contextName>placeModule</contextName>
+    <contextName>permissionModule</contextName>
 
     <property name="charset" value="utf-8"/>
     <property name="pattern" value="%d [%thread] %-5level %logger - %msg %n"/>
@@ -16,7 +16,7 @@
 
     <!-- 打印单个日志-->
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>place.log</file>
+        <file>permission.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${pattern}</pattern>
         </encoder>
@@ -27,7 +27,7 @@
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--日誌文件輸出的文件名-->
-            <FileNamePattern>place-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>permission-%d{yyyy-MM-dd}.log</FileNamePattern>
             <!--日誌文件保留天數-->
             <MaxHistory>30</MaxHistory>
         </rollingPolicy>

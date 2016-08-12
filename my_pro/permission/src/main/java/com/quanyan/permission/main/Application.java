@@ -29,7 +29,8 @@ import javax.sql.DataSource;
  */
 @Configuration
 @ComponentScan(basePackages = {
-
+        "com.quanyan.permission.service",
+        "com.quanyan.permission.web",
 })
 @EnableAutoConfiguration
 @MapperScan(basePackages = {"com.quanyan.*.mapper"})
