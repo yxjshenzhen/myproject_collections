@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+    <properties resource="generator.properties"></properties>
+    <classPathEntry location="${jdbc.driverLocation}"/>
+
+    <!-- 自定义生成xml -->
+    <context id="MysqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <!-- 禁止xml 合并 -->
+        <property name="mergeable" value="false"></property>
+
+        <!--实体类序列化组件-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+
+        <!-- 不生产注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库库链接-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="${jdbc.connectionURL}" userId="${jdbc.userId}" password="${jdbc.password}"
+        />
+
+        <!-- 实体类配置-->
+        <javaModelGenerator targetPackage="${javaModel.targetPackage}" targetProject="${javaModelGenerator.targetProject}">
+            <property name="enableSubPackages" value="true"/>
+        </javaModelGenerator>
+
+        <!-- mapper xml 配置 -->
+        <sqlMapGenerator targetPackage="${mapperXML.targetPackage}"   targetProject="${sqlMapGenerator.targetProject}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- mapper 接口类配置 -->
+        <javaClientGenerator targetPackage="${mapperInterface.targetPackage}"  targetProject="${javaClientGenerator.targetProject}" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="action"  domainObjectName="Action">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="group_manager"  domainObjectName="GroupManager">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+        <table tableName="master"  domainObjectName="Master">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

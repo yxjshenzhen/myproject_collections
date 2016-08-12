@@ -1,0 +1,77 @@
+<configuration>
+
+    <contextName>placeModule</contextName>
+
+    <property name="charset" value="utf-8"/>
+    <property name="pattern" value="%d [%thread] %-5level %logger - %msg %n"/>
+
+    <!-- definition of appender STDOUT -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${pattern}</pattern>
+            <charset>${charset}</charset>
+        </encoder>
+    </appender>
+
+
+    <!-- 打印单个日志-->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>place.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 按照每天生成日誌文件, 最多保留30天 -->
+    <appender name="ROLLINGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--日誌文件輸出的文件名-->
+            <FileNamePattern>place-%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!--日誌文件保留天數-->
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern}</pattern>
+            <charset>${charset}</charset>
+        </encoder>
+
+        <!--日誌文件最大的大小-->
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>100MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+
+    <!-- 超出固定大小后压缩 -->
+    <appender name="DFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>place.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>place.%i.log.zip</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>3</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>100MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+
+
+
+    <logger name="com" level="WARN" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="org" level="WARN" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <root level="WARN">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
