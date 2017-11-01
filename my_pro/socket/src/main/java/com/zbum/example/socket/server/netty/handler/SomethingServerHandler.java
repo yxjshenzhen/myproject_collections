@@ -30,9 +30,7 @@ import javax.print.DocFlavor;
 import java.io.UnsupportedEncodingException;
 
 /**
- * event handler to process receiving messages
- *
- * @author Jibeom Jung
+ * Created by youxiaojia on 2017/10/31.
  */
 @Component
 @Qualifier("somethingServerHandler")

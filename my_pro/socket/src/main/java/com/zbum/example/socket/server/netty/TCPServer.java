@@ -27,9 +27,7 @@ import java.net.InetSocketAddress;
 
 
 /**
- * Main Server
- *
- * @author Jibeom Jung
+ * Created by youxiaojia on 2017/10/31.
  */
 @Component
 public class TCPServer {
