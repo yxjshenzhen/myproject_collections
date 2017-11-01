@@ -13,12 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.zbum.example.socket.server;
+package com.qc.you.socket.server;
 
-import com.zbum.example.socket.server.netty.ChannelRepository;
-import com.zbum.example.socket.server.netty.TCPServer;
-import com.zbum.example.socket.server.netty.handler.BroadCastChannelHandler;
-import com.zbum.example.socket.server.netty.handler.SomethingServerHandler;
+import com.qc.you.socket.server.netty.handler.BroadCastChannelHandler;
+import com.qc.you.socket.server.netty.ChannelRepository;
+import com.qc.you.socket.server.netty.TCPServer;
+import com.qc.you.socket.server.netty.handler.SomethingServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;

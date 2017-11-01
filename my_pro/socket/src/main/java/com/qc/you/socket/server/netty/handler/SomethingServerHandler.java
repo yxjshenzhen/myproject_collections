@@ -13,10 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.zbum.example.socket.server.netty.handler;
+package com.qc.you.socket.server.netty.handler;
 
-import com.zbum.example.socket.server.netty.ChannelRepository;
-import io.netty.buffer.ByteBuf;
+import com.qc.you.socket.server.netty.ChannelRepository;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -25,9 +24,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
-
-import javax.print.DocFlavor;
-import java.io.UnsupportedEncodingException;
 
 /**
  * Created by youxiaojia on 2017/10/31.

@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.zbum.example.socket.server.netty.handler;
+package com.qc.you.socket.server.netty.handler;
 
-import com.zbum.example.socket.server.netty.ChannelRepository;
+import com.qc.you.socket.server.netty.ChannelRepository;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import org.junit.After;
